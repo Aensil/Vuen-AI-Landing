@@ -162,6 +162,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
   const isReturning = phase === 'returning';
   const showOrb = phase === 'orb' || phase === 'listening';
   const showDashboard = isDashboardPhase || isTransitioning;
+  const showWaveform = !prefersReducedMotion && phase === 'listening';
 
   // Bars must grow AFTER the dashboard container is fully opaque.
   // Container transition: opacity 350ms ease-out with 100ms delay = ~450ms to fully opaque.
@@ -196,14 +197,14 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
       {/* Voice query bar — shown during listening phase (or always for reduced motion) */}
       <div
         className={`
-          mx-auto mb-3 sm:mb-6 max-w-xl px-4 sm:px-0
+          mx-auto mb-3 sm:mb-6 w-full max-w-xl px-4 sm:px-0
           transition-all duration-700 ease-out
           ${isReducedMotionStatic || phase === 'listening' || isTransitioning || isDashboardPhase
             ? 'opacity-100 translate-y-0'
             : 'opacity-0 -translate-y-4 pointer-events-none'}
         `}
       >
-        <div className="glass-panel-static flex items-center gap-3 px-4 py-3 !rounded-2xl">
+        <div className="glass-panel-static flex w-full items-center gap-3 px-3 py-3 sm:px-4 !rounded-2xl">
           {/* Mic icon */}
           <div className={`
             flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center
@@ -216,16 +217,13 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
           </div>
 
           {/* Waveform — hidden for reduced motion */}
-          {!prefersReducedMotion && (
+          {showWaveform && (
             <div className={`
-              flex items-center gap-[2px] h-6
-              transition-opacity duration-500
-              ${phase === 'listening' ? 'opacity-100' : 'opacity-0'}
+              hidden min-[420px]:flex items-center gap-[2px] h-6
             `}>
               {waveformBars.map((bar, i) => {
-                const isListening = phase === 'listening';
                 // Opacity varies with amplitude: louder bars glow brighter
-                const opacity = isListening ? 0.4 + (bar.amp / 20) * 0.6 : 0.6;
+                const opacity = 0.4 + (bar.amp / 20) * 0.6;
                 return (
                   <div
                     key={i}
@@ -233,12 +231,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
                     style={{
                       height: `${bar.amp + 4}px`,
                       backgroundColor: `rgba(0, 229, 200, ${opacity})`,
-                      transform: isListening ? undefined : 'scaleY(0.15)',
-                      transformOrigin: 'center',
-                      transition: `transform 0.3s cubic-bezier(0.68, -0.3, 0.27, 1.3) ${i * 30}ms`,
-                      animation: isListening
-                        ? `waveform-bar-${bar.kf} ${bar.dur}s cubic-bezier(0.4, 0, 0.2, 1) ${i * 0.04}s infinite`
-                        : 'none',
+                      animation: `waveform-bar-${bar.kf} ${bar.dur}s cubic-bezier(0.4, 0, 0.2, 1) ${i * 0.04}s infinite`,
                     }}
                   />
                 );
@@ -248,7 +241,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
 
           {/* Typed text */}
           <div className="flex-1 min-w-0">
-            <span className="text-sm text-white/70 font-light truncate block">
+            <span className="block text-xs sm:text-sm text-white/70 font-light leading-snug sm:truncate">
               {isReducedMotionStatic
                 ? queryText
                 : (typedText || (isDashboardPhase || isTransitioning ? queryText : ''))}
@@ -331,7 +324,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
             }}
           >
             <div className={`
-              relative
+              relative rounded-full
               ${phase === 'listening' ? 'animate-[orb-listening_2s_ease-in-out_infinite]' : ''}
             `}>
               {!orbIsHidden && (
@@ -363,15 +356,15 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
           }}
         >
           {/* GAP 3 FIX: ltr direction to prevent RTL flex-row reversal */}
-          <div className="w-full flex flex-col sm:flex-row gap-2 sm:gap-4 px-4 sm:px-2" dir="ltr">
+          <div className="w-full max-w-full flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-2" dir="ltr">
             {/* Bar chart panel — REGRESSION 1 FIX: glass-panel-static (no hover lift) */}
             <div className="glass-panel-static flex-1 min-w-0 !rounded-2xl p-3 sm:p-5">
-              <div className="flex items-center justify-between mb-3 sm:mb-4">
+              <div className="mb-3 sm:mb-4 flex flex-col gap-2 min-[420px]:flex-row min-[420px]:items-start min-[420px]:justify-between">
                 <div>
                   <h3 className="text-sm font-semibold text-white/90">{t('hero.demo.chartTitle')}</h3>
                   <p className="text-xs text-white/40 mt-0.5">{t('hero.demo.chartSubtitle')}</p>
                 </div>
-                <div className="flex gap-3 text-[10px] text-white/50">
+                <div className="flex flex-wrap gap-x-3 gap-y-1 text-[10px] text-white/50">
                   <span className="flex items-center gap-1">
                     <span className="w-2 h-2 rounded-sm bg-primary-cyan" />
                     2024
@@ -384,13 +377,13 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
               </div>
 
               {/* Bar chart — bars start growing during transition, not just dashboard */}
-              <div className="flex justify-around gap-2 sm:gap-4 h-[110px] sm:h-[170px]">
+              <div className="flex justify-between gap-1 min-[420px]:gap-2 sm:gap-4 h-[104px] min-[420px]:h-[110px] sm:h-[170px]">
                 {barData.map((bar, i) => (
-                  <div key={bar.labelKey} className="flex flex-col items-center gap-1 flex-1">
-                    <div className="flex items-end gap-1 flex-1 w-full justify-center">
+                  <div key={bar.labelKey} className="flex min-w-0 flex-1 flex-col items-center gap-1">
+                    <div className="flex items-end gap-0.5 min-[420px]:gap-1 flex-1 w-full justify-center">
                       {/* Current year bar — GAP 4 FIX: uses CSS variable via class */}
                       <div
-                        className="w-[18px] sm:w-[28px] rounded-t-sm demo-bar-current"
+                        className="w-3.5 min-[420px]:w-4 sm:w-[28px] rounded-t-sm demo-bar-current"
                         style={{
                           height: (barsGrow || isReducedMotionStatic) ? `${bar.current}%` : '0%',
                           transition: prefersReducedMotion ? 'none' : `height 800ms cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 120 + 100}ms, box-shadow 600ms ease ${i * 120 + 400}ms`,
@@ -399,21 +392,21 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
                       />
                       {/* Previous year bar */}
                       <div
-                        className="w-[18px] sm:w-[28px] rounded-t-sm bg-white/15"
+                        className="w-3.5 min-[420px]:w-4 sm:w-[28px] rounded-t-sm bg-white/15"
                         style={{
                           height: (barsGrow || isReducedMotionStatic) ? `${bar.previous}%` : '0%',
                           transition: prefersReducedMotion ? 'none' : `height 800ms cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 120 + 200}ms`,
                         }}
                       />
                     </div>
-                    <span className="text-[10px] sm:text-xs text-white/40 mt-1">{t(bar.labelKey)}</span>
+                    <span className="mt-1 text-[9px] min-[420px]:text-[10px] sm:text-xs text-white/40">{t(bar.labelKey)}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* KPI cards — 1-col on very narrow (<360px), 2-col on mobile, stacked on desktop sidebar */}
-            <div className="grid grid-cols-1 min-[360px]:grid-cols-2 sm:flex sm:flex-col gap-2 sm:gap-3 min-w-0 sm:w-[180px]">
+            <div className="grid w-full grid-cols-1 min-[440px]:grid-cols-2 sm:flex sm:flex-col gap-2 sm:gap-3 min-w-0 sm:w-[180px]">
               {/* Total Revenue */}
               <div
                 className="glass-panel-static !rounded-2xl p-2.5 sm:p-4 text-center sm:flex-1"
@@ -444,7 +437,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
 
               {/* Pie / Donut chart — Channel Mix — spans full width on mobile */}
               <div
-                className="glass-panel-static col-span-2 sm:col-span-1 !rounded-2xl p-2.5 sm:p-4 sm:flex-1"
+                className="glass-panel-static min-[440px]:col-span-2 sm:col-span-1 !rounded-2xl p-2.5 sm:p-4 sm:flex-1"
                 style={isReducedMotionStatic ? {} : {
                   opacity: barsGrow ? 1 : 0,
                   transform: barsGrow ? 'translateY(0)' : 'translateY(16px)',

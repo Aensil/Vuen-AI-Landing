@@ -770,20 +770,18 @@
 @keyframes orb-listening {
   0%, 100% {
     transform: scale(1);
-    box-shadow: 0 0 60px var(--primary-cyan-glow);
   }
   50% {
     transform: scale(1.03);
-    box-shadow: 0 0 100px var(--primary-cyan-glow);
   }
 }
 
 @keyframes orb-speaking {
   0%, 100% {
-    box-shadow: 0 0 60px var(--accent-magenta-glow), 0 0 120px var(--primary-cyan-glow);
+    transform: scale(1);
   }
   50% {
-    box-shadow: 0 0 100px var(--accent-magenta-glow), 0 0 180px var(--primary-cyan-glow);
+    transform: scale(1.02);
   }
 }
 

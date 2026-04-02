@@ -22,8 +22,12 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
     const cy = h / 2;
     const baseRadius = Math.min(w, h) * 0.34;
     const t = timeRef.current;
+    const haloInnerRadius = baseRadius * 0.78;
+    const haloOuterRadius = Math.min(Math.min(cx, cy) - 12, baseRadius * 1.34);
 
     ctx.clearRect(0, 0, w, h);
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
 
     // Background particles
     const particleSeed = 42;
@@ -37,32 +41,23 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
       ctx.fill();
     }
 
-    // Outer ambient glow — visible and breathing
+    // Outer ambient halo — keep it circular so the glow belongs to the orb,
+    // not to the square canvas buffer.
     const glowBreath = Math.sin(t * 0.5) * 0.04 + 0.04;
-    const outerGlow = ctx.createRadialGradient(cx, cy, baseRadius * 0.3, cx, cy, baseRadius * 1.8);
-    outerGlow.addColorStop(0, `rgba(0, 229, 200, ${0.14 + glowBreath})`);
-    outerGlow.addColorStop(0.35, `rgba(0, 229, 200, ${0.07 + glowBreath * 0.5})`);
-    outerGlow.addColorStop(0.6, `rgba(124, 92, 250, ${0.04 + glowBreath * 0.3})`);
+    const outerGlow = ctx.createRadialGradient(cx, cy, haloInnerRadius, cx, cy, haloOuterRadius);
+    outerGlow.addColorStop(0, 'rgba(0, 229, 200, 0)');
+    outerGlow.addColorStop(0.45, 'rgba(0, 229, 200, 0)');
+    outerGlow.addColorStop(0.7, `rgba(0, 229, 200, ${0.08 + glowBreath * 0.45})`);
+    outerGlow.addColorStop(0.88, `rgba(124, 92, 250, ${0.05 + glowBreath * 0.28})`);
     outerGlow.addColorStop(1, 'transparent');
     ctx.fillStyle = outerGlow;
-    ctx.fillRect(0, 0, w, h);
+    ctx.beginPath();
+    ctx.arc(cx, cy, haloOuterRadius, 0, Math.PI * 2);
+    ctx.fill();
 
     // Breathing: visible 8% scale oscillation so it looks alive
     const breathe = Math.sin(t * 0.6) * 0.08 + 1;
-    const coreRadius = baseRadius * 0.92 * breathe;
-
-    // Pulsing inner glow intensity — cycles between dim and bright
-    const glowPulse = Math.sin(t * 0.9) * 0.5 + 0.5; // 0..1
-
-    // Soft inner glow — diffuse fill so there's no visible inner ring
-    const coreGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, coreRadius);
-    coreGrad.addColorStop(0, `rgba(0, 229, 200, ${0.10 + glowPulse * 0.06})`);
-    coreGrad.addColorStop(0.4, `rgba(124, 92, 250, ${0.04 + glowPulse * 0.03})`);
-    coreGrad.addColorStop(1, 'transparent');
-    ctx.beginPath();
-    ctx.arc(cx, cy, coreRadius, 0, Math.PI * 2);
-    ctx.fillStyle = coreGrad;
-    ctx.fill();
+    const coreRadius = baseRadius * breathe;
 
     // Draw multiple ring layers for the organic orb effect
     // Reduce ring count on smaller canvases (mobile) for performance
@@ -73,7 +68,7 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
     for (let ring = 0; ring < ringCount; ring++) {
       const ringProgress = ring / ringCount;
       const alpha = 0.03 + Math.sin(ringProgress * Math.PI) * 0.08;
-      const radiusOffset = (ringProgress - 0.5) * baseRadius * 0.12;
+      const radiusOffset = (ringProgress - 0.5) * baseRadius * 0.1;
       const phaseOffset = ring * 0.13;
       const distortStrength = 4 + Math.sin(ringProgress * Math.PI * 2) * 6;
 
@@ -93,7 +88,7 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
         const mx = mouseRef.current.x * mouseInfluence * Math.cos(angle) * 15;
         const my = mouseRef.current.y * mouseInfluence * Math.sin(angle) * 15;
 
-        const r = baseRadius + radiusOffset + noise + mx + my;
+        const r = coreRadius + radiusOffset + noise + mx + my;
         const x = cx + Math.cos(angle) * r;
         const y = cy + Math.sin(angle) * r;
 
@@ -122,7 +117,7 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
       ctx.beginPath();
       const passAlpha = [0.25, 0.15, 0.08][pass];
       const passWidth = [1.2, 2.0, 3.5][pass];
-      const passRadius = baseRadius + pass * 0.5;
+      const passRadius = coreRadius + pass * 0.5;
 
       for (let i = 0; i <= innerSegments; i++) {
         const angle = (i / innerSegments) * Math.PI * 2;
@@ -150,6 +145,14 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
       ctx.stroke();
       ctx.shadowBlur = 0;
     }
+
+    // Carve the center back out so the orb reads as a true hollow ring.
+    ctx.save();
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.beginPath();
+    ctx.arc(cx, cy, coreRadius * 0.72, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
   }, [prefersReducedMotion]);
 
   // Size the canvas buffer to match actual rendered size
