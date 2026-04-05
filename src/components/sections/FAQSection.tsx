@@ -14,7 +14,7 @@ const FAQSection: React.FC = () => {
   const faqs = tArray<FAQItem>('faq.items');
 
   return (
-    <section className="relative py-28 sm:py-32 px-6">
+    <section id="faq" className="relative py-28 sm:py-32 px-6">
       <div className="relative max-w-3xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-16">
@@ -36,6 +36,8 @@ const FAQSection: React.FC = () => {
         <div className="space-y-3">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
+            const panelId = `faq-panel-${index}`;
+            const buttonId = `faq-button-${index}`;
             return (
               <div
                 key={index}
@@ -48,8 +50,11 @@ const FAQSection: React.FC = () => {
                 `}
               >
                 <button
+                  id={buttonId}
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   className="w-full flex items-center justify-between p-6 text-left"
+                  aria-expanded={isOpen}
+                  aria-controls={panelId}
                 >
                   <span className={`text-base font-semibold pr-4 ${theme === 'dark' ? 'text-white/90' : 'text-gray-900'}`}>
                     {faq.question}
@@ -59,14 +64,19 @@ const FAQSection: React.FC = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
+                    aria-hidden="true"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
                 <div
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={buttonId}
+                  aria-hidden={!isOpen}
                   className={`
                     overflow-hidden transition-all duration-300
-                    ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}
+                    ${isOpen ? 'max-h-[32rem] opacity-100' : 'max-h-0 opacity-0'}
                   `}
                 >
                   <p className={`px-6 pb-6 text-sm leading-relaxed ${theme === 'dark' ? 'text-white/55' : 'text-gray-600'}`}>
@@ -87,7 +97,7 @@ const FAQSection: React.FC = () => {
           }
         `}>
           <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-primary-cyan/10 flex items-center justify-center">
-            <svg className="w-7 h-7 text-primary-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-7 h-7 text-primary-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
           </div>

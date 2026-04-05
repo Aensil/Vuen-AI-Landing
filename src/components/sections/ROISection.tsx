@@ -28,7 +28,7 @@ const ROISection: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-28 sm:py-32 px-6">
+    <section id="roi" className="relative py-28 sm:py-32 px-6">
       <div className="relative max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -54,8 +54,8 @@ const ROISection: React.FC = () => {
               className={`
                 p-7 rounded-2xl text-center border
                 ${theme === 'dark'
-                  ? 'bg-white/[0.03] border-white/[0.08] hover:border-white/15'
-                  : 'bg-white border-gray-200 hover:border-gray-300'
+                  ? 'bg-white/[0.03] border-white/[0.08]'
+                  : 'bg-white border-gray-200'
                 }
                 transition-all duration-300
               `}

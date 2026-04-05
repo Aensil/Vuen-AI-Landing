@@ -21,7 +21,7 @@ const TransformationSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-28 sm:py-32 px-6">
+    <section id="transformation" className="relative py-28 sm:py-32 px-6">
       {/* Subtle background */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -61,7 +61,7 @@ const TransformationSection: React.FC = () => {
           `}>
             <div className="flex items-center gap-3 mb-6">
               <div className={`w-10 h-10 rounded-full flex items-center justify-center ${theme === 'dark' ? 'bg-accent-magenta/15' : 'bg-red-100'}`}>
-                <svg className={`w-5 h-5 ${theme === 'dark' ? 'text-accent-magenta' : 'text-red-500'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className={`w-5 h-5 ${theme === 'dark' ? 'text-accent-magenta' : 'text-red-500'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </div>
@@ -91,7 +91,7 @@ const TransformationSection: React.FC = () => {
           `}>
             <div className="flex items-center gap-3 mb-6">
               <div className={`w-10 h-10 rounded-full flex items-center justify-center ${theme === 'dark' ? 'bg-primary-cyan/15' : 'bg-emerald-100'}`}>
-                <svg className={`w-5 h-5 ${theme === 'dark' ? 'text-primary-cyan' : 'text-emerald-500'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className={`w-5 h-5 ${theme === 'dark' ? 'text-primary-cyan' : 'text-emerald-500'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
@@ -102,7 +102,7 @@ const TransformationSection: React.FC = () => {
             <ul className="space-y-4">
               {afterItems.map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <svg className={`w-4 h-4 mt-0.5 flex-shrink-0 ${theme === 'dark' ? 'text-primary-cyan' : 'text-emerald-500'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className={`w-4 h-4 mt-0.5 flex-shrink-0 ${theme === 'dark' ? 'text-primary-cyan' : 'text-emerald-500'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <span className={`text-sm leading-relaxed ${theme === 'dark' ? 'text-white/70' : 'text-gray-700'}`}>
