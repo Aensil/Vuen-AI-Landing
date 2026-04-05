@@ -74,7 +74,7 @@ const Header: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { label: t('nav.product'), href: '#product' },
+    { label: t('nav.pricing'), href: '#pricing' },
   ];
 
   return (

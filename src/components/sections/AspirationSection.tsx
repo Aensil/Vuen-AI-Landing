@@ -1,25 +1,14 @@
 import React from 'react';
+import { useTranslation } from '@/hooks/useTranslation';
 
-interface AspirationSectionProps {
-  hasScrolled?: boolean;
-  prefersReducedMotion?: boolean;
+interface AspirationItem {
+  title: string;
+  description: string;
 }
 
-const AspirationSection: React.FC<AspirationSectionProps> = () => {
-  const aspirations = [
-    {
-      title: 'Ask hard questions without warning.',
-      description: 'Revenue, churn, cohorts, bottlenecks – live, not in a report three days later.'
-    },
-    {
-      title: 'Drill down without losing the room.',
-      description: '"Show this by region… now by product… now last year\'s comp" – no clicks, no chaos.'
-    },
-    {
-      title: 'Make everyone feel the numbers.',
-      description: 'Charts, flows, maps, not another paragraph of AI text.'
-    }
-  ];
+const AspirationSection: React.FC = () => {
+  const { t, tArray } = useTranslation();
+  const aspirations = tArray<AspirationItem>('aspiration.items');
 
   return (
     <section className="py-24 px-4 void-gradient relative z-10" aria-label="Aspiration Section">
@@ -28,15 +17,15 @@ const AspirationSection: React.FC<AspirationSectionProps> = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             <span className="heading-gradient">
-              You don't want more dashboards.
+              {t('aspiration.title1')}
             </span>
             <br />
             <span className="text-text-primary">
-              You want control in the room.
+              {t('aspiration.title2')}
             </span>
           </h2>
           <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
-            You want to walk into any meeting, ask "How's X doing?" and have the answer appear on the screen while you're still talking – so you can drive the conversation, not wait on someone's mouse.
+            {t('aspiration.subtitle')}
           </p>
         </div>
 

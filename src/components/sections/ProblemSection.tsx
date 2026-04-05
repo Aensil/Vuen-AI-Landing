@@ -1,33 +1,14 @@
 import React from 'react';
+import { useTranslation } from '@/hooks/useTranslation';
 
-interface ProblemSectionProps {
-  hasScrolled?: boolean;
-  prefersReducedMotion?: boolean;
+interface ProblemItem {
+  text: string;
+  detail: string;
 }
 
-const ProblemSection: React.FC<ProblemSectionProps> = () => {
-  const problems = [
-    {
-      text: 'You ask a simple question and the room dies.',
-      detail: '"Give me a second, let me find the dashboard… what\'s the filter again?"'
-    },
-    {
-      text: 'You pay for Power BI/Tableau/Looker, but 90% of the company never logs in.',
-      detail: 'They take screenshots, export to PowerPoint, or "follow up in an email."'
-    },
-    {
-      text: 'Follow-up questions kill momentum.',
-      detail: '"And what about by region? By channel? Last year?" → 10 more clicks, 0 conviction.'
-    },
-    {
-      text: 'Only a couple of analysts know how to drive the tools.',
-      detail: 'Everyone else nods along, half blind.'
-    },
-    {
-      text: 'Latency makes you look weak.',
-      detail: 'Waiting 2–5 seconds every time you click feels like the tool is thinking harder than your team.'
-    }
-  ];
+const ProblemSection: React.FC = () => {
+  const { t, tArray } = useTranslation();
+  const problems = tArray<ProblemItem>('problem.items');
 
   return (
     <section className="py-24 px-4 section-gradient-magenta relative z-10" aria-label="Problem Section">
@@ -36,11 +17,11 @@ const ProblemSection: React.FC<ProblemSectionProps> = () => {
         <div className="text-center mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             <span className="heading-gradient-warm">
-              If this sounds like you, your BI is failing you.
+              {t('problem.title')}
             </span>
           </h2>
           <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto">
-            You're not short on tools. You're short on answers when it matters – in front of your team, your investors, your customers.
+            {t('problem.subtitle')}
           </p>
         </div>
 
@@ -64,9 +45,9 @@ const ProblemSection: React.FC<ProblemSectionProps> = () => {
         {/* Punchline */}
         <div className="text-center">
           <p className="text-xl md:text-2xl font-bold text-text-primary">
-            You don't have a data problem.{' '}
+            {t('problem.punchline1')}{' '}
             <span className="text-accent-magenta text-glow-magenta">
-              You have a "cannot answer on the spot" problem.
+              {t('problem.punchline2')}
             </span>
           </p>
         </div>

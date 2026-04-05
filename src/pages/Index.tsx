@@ -55,16 +55,16 @@ const Index: React.FC = () => {
           <ProblemSection />
           <WhoItsForSection />
 
-          {/* Q2: What is the risk? What are you not telling me? */}
-          <RiskSection />
+          {/* Q4: What will my life actually look like after? */}
+          <ExperienceSection />
+          <AspirationSection />
 
           {/* Q3: Is this worth the time, money, and effort? */}
           <TestimonialsSection />
           <PricingSection />
 
-          {/* Q4: What will my life actually look like after? */}
-          <ExperienceSection />
-          <AspirationSection />
+          {/* Q2: What is the risk? What are you not telling me? */}
+          <RiskSection />
 
           {/* Final CTA */}
           <CTASection />

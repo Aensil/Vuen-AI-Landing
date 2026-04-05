@@ -19,8 +19,8 @@
   },
   "hero": {
     "badge": "Now in Public Beta",
-    "headline1": "Ask questions.",
-    "headline2": "Get answers.",
+    "headline1": "Tired of fumbling for data in front of your team?",
+    "headline2": "Stop fumbling. Start answering.",
     "subheadline": "Upload a CSV or connect your database. Ask in plain English. Get instant visualizations in seconds.",
     "cta": "Try Free — No Credit Card",
     "scroll": "Scroll",
@@ -72,6 +72,133 @@
       "title": "Enterprise Security",
       "description": "SOC 2 compliant. Your data never leaves your infrastructure."
     }
+  },
+  "problem": {
+    "title": "If this sounds like you, your BI is failing you.",
+    "subtitle": "You're not short on tools. You're short on answers when it matters — in front of your team, your investors, your customers.",
+    "items": [
+      {
+        "text": "You ask a simple question and the room dies.",
+        "detail": "\"Give me a second, let me find the dashboard… what's the filter again?\""
+      },
+      {
+        "text": "You pay for Power BI/Tableau/Looker, but 90% of the company never logs in.",
+        "detail": "They take screenshots, export to PowerPoint, or \"follow up in an email.\""
+      },
+      {
+        "text": "Follow-up questions kill momentum.",
+        "detail": "\"And what about by region? By channel? Last year?\" → 10 more clicks, 0 conviction."
+      },
+      {
+        "text": "Only a couple of analysts know how to drive the tools.",
+        "detail": "Everyone else nods along, half blind."
+      },
+      {
+        "text": "Latency makes you look weak.",
+        "detail": "Waiting 2–5 seconds every time you click feels like the tool is thinking harder than your team."
+      }
+    ],
+    "punchline1": "You don't have a data problem.",
+    "punchline2": "You have a \"cannot answer on the spot\" problem."
+  },
+  "whoItsFor": {
+    "title1": "If this is you, Vuen makes you ",
+    "titleHighlight": "dangerous",
+    "title2": " (in a good way).",
+    "personas": [
+      {
+        "title": "Founder / CEO",
+        "description": "You're tired of staring at static decks. With Vuen, you walk into your board or investor meeting and drive the conversation live, with real numbers reacting to your questions."
+      },
+      {
+        "title": "COO / Ops Leader",
+        "description": "You run daily or weekly war rooms. Instead of flipping through dashboards, you ask \"Where are we leaking orders today?\" and watch the problem areas light up on the map."
+      },
+      {
+        "title": "CFO / Head of Finance",
+        "description": "You live in Excel. Vuen lets you talk to those files directly: \"Show me margin by product vs last year\" — chart, explanation, and follow-up questions, no manual pivoting."
+      },
+      {
+        "title": "Head of Data / BI",
+        "description": "You're the bottleneck for every \"quick question.\" Vuen lets the rest of the org self-serve by voice, so your team can stop building one-off dashboards and focus on real models."
+      }
+    ]
+  },
+  "risk": {
+    "sectionLabel": "Honest answers",
+    "title": "What you're probably wondering",
+    "subtitle": "We'd rather answer these upfront than have you leave with doubts.",
+    "items": [
+      {
+        "question": "What if my data isn't clean enough?",
+        "answer": "Vuen works with messy CSVs, half-filled spreadsheets, and real-world databases. You don't need to prep your data first — just upload and ask."
+      },
+      {
+        "question": "Will this replace my existing BI tools?",
+        "answer": "No. Vuen sits alongside your current stack. It's for the 90% of your company that never logs into Tableau or Power BI. Your analysts keep their tools — everyone else gets answers."
+      },
+      {
+        "question": "How hard is onboarding?",
+        "answer": "Upload a CSV or connect a database. Ask a question in plain English. That's it. No training, no SQL, no implementation project. Most teams are running queries within 5 minutes."
+      },
+      {
+        "question": "What happens to my data?",
+        "answer": "Your data never leaves your infrastructure. SOC 2 Type II certified. GDPR compliant. Enterprise plans offer on-premise deployment. We don't train on your data — ever."
+      },
+      {
+        "question": "What if it gives wrong answers?",
+        "answer": "Every visualization shows its source file and query. You can verify any answer instantly. Vuen cites its work so you never have to blindly trust a chart."
+      },
+      {
+        "question": "What if I outgrow the free plan?",
+        "answer": "The free plan gives you 40 AI interactions per month to validate the product. Upgrade when you're ready — or don't. No lock-in, no contracts, cancel anytime."
+      }
+    ],
+    "bottomText": "Still unsure? Try it free — no credit card, no commitment.",
+    "bottomCta": "Start Free"
+  },
+  "experience": {
+    "title1": "Your next revenue review, with a ",
+    "titleHighlight": "Visual Agent.",
+    "youSay": "You say:",
+    "thenYouSay": "Then you say:",
+    "whatHappens": "What happens:",
+    "query1": "\"How's revenue this quarter?\"",
+    "result1a": "A line chart flashes onto the screen:",
+    "result1aHighlight": "$2.4M, up 15%",
+    "result1aEnd": " vs last quarter.",
+    "result1b": "December glows at",
+    "result1bHighlight": " $850K",
+    "result1bEnd": ", clearly the peak.",
+    "result1c": "\"Revenue hit $2.4M this quarter, up 15%. December was strongest at $850K. Source: Q4_Report.xlsx. Want this by region or forecast?\"",
+    "query2": "\"Break it down by region.\"",
+    "result2a": "The chart morphs into a",
+    "result2aHighlight": " bar chart by region",
+    "result2aEnd": ".",
+    "result2b": "The Visual Agent calls out:",
+    "result2bQuote": " \"North is leading with $1.2M. West is lagging at $320K.\"",
+    "punchline1": "You look like the only person in the room who came prepared — ",
+    "punchlineHighlight": "even though you didn't touch a single dashboard.",
+    "demoCaption": "Watch Demo — See Vuen in action with real data."
+  },
+  "aspiration": {
+    "title1": "You don't want more dashboards.",
+    "title2": "You want control in the room.",
+    "subtitle": "You want to walk into any meeting, ask \"How's X doing?\" and have the answer appear on the screen while you're still talking — so you can drive the conversation, not wait on someone's mouse.",
+    "items": [
+      {
+        "title": "Ask hard questions without warning.",
+        "description": "Revenue, churn, cohorts, bottlenecks — live, not in a report three days later."
+      },
+      {
+        "title": "Drill down without losing the room.",
+        "description": "\"Show this by region… now by product… now last year's comp\" — no clicks, no chaos."
+      },
+      {
+        "title": "Make everyone feel the numbers.",
+        "description": "Charts, flows, maps, not another paragraph of AI text."
+      }
+    ]
   },
   "socialProof": {
     "stat1Value": "<2s",
@@ -220,6 +347,7 @@
     "company": "Company",
     "legal": "Legal",
     "features": "Features",
+    "faq": "FAQ",
     "useCases": "Use Cases",
     "realEstateDemo": "Real Estate Demo",
     "about": "About",

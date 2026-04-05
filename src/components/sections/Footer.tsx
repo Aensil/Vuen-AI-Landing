@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
 
   const footerLinks = {
     product: [
-      { label: t('footer.features'), href: '#product' },
+      { label: t('footer.faq'), href: '#faq' },
       { label: t('nav.pricing'), href: '#pricing' },
       { label: t('footer.useCases'), href: '/use-cases' },
       { label: t('footer.realEstateDemo'), href: 'https://real-estate.vuen.ai/', external: true },
