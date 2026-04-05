@@ -1,10 +1,14 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import Header from '@/components/Header';
 import HeroSection from '@/components/sections/HeroSection';
+import StepPlanSection from '@/components/sections/StepPlanSection';
 import SocialProofSection from '@/components/sections/SocialProofSection';
-import FeaturesSection from '@/components/sections/FeaturesSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
+import FAQSection from '@/components/sections/FAQSection';
+import ROISection from '@/components/sections/ROISection';
+import FeaturesSection from '@/components/sections/FeaturesSection';
 import PricingSection from '@/components/sections/PricingSection';
+import TransformationSection from '@/components/sections/TransformationSection';
 import CTASection from '@/components/sections/CTASection';
 import Footer from '@/components/sections/Footer';
 import SEO from '@/components/SEO';
@@ -36,25 +40,37 @@ const Index: React.FC = () => {
         {/* Fixed Header */}
         <Header />
 
-        {/* Main Content */}
+        {/* Main Content — structured around Donald Miller's 4 buyer questions */}
         <main>
-          {/* Hero - Primary CTA to sign up */}
+          {/* Hero - Clear value proposition + CTA */}
           <HeroSection
             isLoaded={isLoaded}
             prefersReducedMotion={prefersReducedMotion}
           />
 
-          {/* Social Proof - Logos and stats */}
+          {/* 3-Step Plan - Reduce fear, show simplicity */}
+          <StepPlanSection />
+
+          {/* Authority signals */}
           <SocialProofSection />
 
-          {/* Features - What the product does */}
-          <FeaturesSection />
-
-          {/* Testimonials - Social proof */}
+          {/* Q1: "Will this work for someone like me?" */}
           <TestimonialsSection />
 
-          {/* Pricing */}
+          {/* Q2: "What is the risk? What are you not telling me?" */}
+          <FAQSection />
+
+          {/* Q3: "Is this worth the time, money, and effort?" */}
+          <ROISection />
+
+          {/* Product details for researchers */}
+          <FeaturesSection />
+
+          {/* Pricing — with clear value framing */}
           <PricingSection />
+
+          {/* Q4: "What will my life actually look like after?" */}
+          <TransformationSection />
 
           {/* Final CTA */}
           <CTASection />

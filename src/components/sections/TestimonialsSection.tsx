@@ -16,17 +16,20 @@ const TestimonialsSection: React.FC = () => {
   return (
     <section className="relative py-28 sm:py-32 px-6">
       <div className="max-w-6xl mx-auto">
-        {/* Section header — distinct scale from Features */}
+        {/* Section header — Q1: Will this work for someone like me? */}
         <div className="text-center mb-16">
           <p className="text-xs text-primary-cyan/70 font-semibold tracking-widest uppercase mb-4">
             {t('testimonials.sectionLabel')}
           </p>
           <h2
-            className="font-bold text-white tracking-tight"
+            className="font-bold text-white tracking-tight mb-6"
             style={{ fontSize: 'clamp(1.5rem, 2.5vw + 0.5rem, 2.5rem)', lineHeight: '1.2' }}
           >
             {t('testimonials.title')}
           </h2>
+          <p className="text-base sm:text-lg text-white/50 max-w-2xl mx-auto leading-relaxed">
+            CEOs, ops leaders, finance heads, and data teams — here's what happened when they started using Vuen.
+          </p>
         </div>
 
         {/* Testimonials grid — better contrast, clearer hierarchy */}
