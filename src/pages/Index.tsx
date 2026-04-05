@@ -3,12 +3,12 @@ import Header from '@/components/Header';
 import HeroSection from '@/components/sections/HeroSection';
 import StepPlanSection from '@/components/sections/StepPlanSection';
 import SocialProofSection from '@/components/sections/SocialProofSection';
-import TestimonialsSection from '@/components/sections/TestimonialsSection';
-import FAQSection from '@/components/sections/FAQSection';
-import ROISection from '@/components/sections/ROISection';
 import FeaturesSection from '@/components/sections/FeaturesSection';
-import PricingSection from '@/components/sections/PricingSection';
+import TestimonialsSection from '@/components/sections/TestimonialsSection';
+import ROISection from '@/components/sections/ROISection';
 import TransformationSection from '@/components/sections/TransformationSection';
+import PricingSection from '@/components/sections/PricingSection';
+import FAQSection from '@/components/sections/FAQSection';
 import CTASection from '@/components/sections/CTASection';
 import Footer from '@/components/sections/Footer';
 import SEO from '@/components/SEO';
@@ -42,35 +42,35 @@ const Index: React.FC = () => {
 
         {/* Main Content — structured around Donald Miller's 4 buyer questions */}
         <main>
-          {/* Hero - Clear value proposition + CTA */}
+          {/* Hero - Clear value proposition + CTA (villain in subheadline) */}
           <HeroSection
             isLoaded={isLoaded}
             prefersReducedMotion={prefersReducedMotion}
           />
 
-          {/* 3-Step Plan - Reduce fear, show simplicity */}
+          {/* 3-Step Plan - Reduce fear, show simplicity (StoryBrand: the plan) */}
           <StepPlanSection />
 
-          {/* Authority signals */}
+          {/* Authority signals (StoryBrand: guide credentials) */}
           <SocialProofSection />
+
+          {/* Product details — what it actually does (for curious buyers) */}
+          <FeaturesSection />
 
           {/* Q1: "Will this work for someone like me?" */}
           <TestimonialsSection />
 
-          {/* Q2: "What is the risk? What are you not telling me?" */}
-          <FAQSection />
-
-          {/* Q3: "Is this worth the time, money, and effort?" */}
+          {/* Q3 part 1: "Is it worth it?" — build the value case */}
           <ROISection />
 
-          {/* Product details for researchers */}
-          <FeaturesSection />
+          {/* Q4: "What will my life look like after?" — emotional payoff before price */}
+          <TransformationSection />
 
-          {/* Pricing — with clear value framing */}
+          {/* Q3 part 2: Pricing — now they see the price against the value and vision */}
           <PricingSection />
 
-          {/* Q4: "What will my life actually look like after?" */}
-          <TransformationSection />
+          {/* Q2: "What's the risk?" — handle final objections before the close */}
+          <FAQSection />
 
           {/* Final CTA */}
           <CTASection />

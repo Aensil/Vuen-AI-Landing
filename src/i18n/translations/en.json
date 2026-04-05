@@ -21,7 +21,7 @@
     "badge": "Now in Public Beta",
     "headline1": "Ask questions.",
     "headline2": "Get answers.",
-    "subheadline": "Upload a CSV or connect your database. Ask in plain English. Get instant visualizations in seconds.",
+    "subheadline": "Your team wastes hours waiting on dashboards nobody understands. Upload your data, ask in plain English, get instant charts in seconds.",
     "cta": "Try Free — No Credit Card",
     "scroll": "Scroll",
     "demo": {
@@ -85,6 +85,7 @@
   "testimonials": {
     "sectionLabel": "Will this work for someone like me?",
     "title": "People like you already use Vuen",
+    "subtitle": "Leaders like you already use Vuen. Here's what changed for them.",
     "items": [
       {
         "quote": "I used to dread board meetings because I never had the numbers ready. Last week, someone asked 'how fast are we spending money and how long will it last?' I asked Vuen out loud. The chart showed up instantly. My board chair said it was the most prepared I'd ever looked.",

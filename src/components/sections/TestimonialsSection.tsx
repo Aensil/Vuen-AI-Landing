@@ -28,7 +28,7 @@ const TestimonialsSection: React.FC = () => {
             {t('testimonials.title')}
           </h2>
           <p className="text-base sm:text-lg text-white/50 max-w-2xl mx-auto leading-relaxed">
-            Leaders like you already use Vuen. Here's what changed for them.
+            {t('testimonials.subtitle')}
           </p>
         </div>
 
