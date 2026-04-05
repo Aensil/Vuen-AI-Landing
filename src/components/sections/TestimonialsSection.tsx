@@ -28,7 +28,7 @@ const TestimonialsSection: React.FC = () => {
             {t('testimonials.title')}
           </h2>
           <p className="text-base sm:text-lg text-white/50 max-w-2xl mx-auto leading-relaxed">
-            CEOs, ops leaders, finance heads, and data teams — here's what happened when they started using Vuen.
+            Leaders like you already use Vuen. Here's what changed for them.
           </p>
         </div>
 
