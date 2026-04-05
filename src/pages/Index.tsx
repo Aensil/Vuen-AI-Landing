@@ -2,9 +2,13 @@ import React, { useEffect, useState, useMemo } from 'react';
 import Header from '@/components/Header';
 import HeroSection from '@/components/sections/HeroSection';
 import SocialProofSection from '@/components/sections/SocialProofSection';
-import FeaturesSection from '@/components/sections/FeaturesSection';
+import ProblemSection from '@/components/sections/ProblemSection';
+import WhoItsForSection from '@/components/sections/WhoItsForSection';
+import RiskSection from '@/components/sections/RiskSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import PricingSection from '@/components/sections/PricingSection';
+import ExperienceSection from '@/components/sections/ExperienceSection';
+import AspirationSection from '@/components/sections/AspirationSection';
 import CTASection from '@/components/sections/CTASection';
 import Footer from '@/components/sections/Footer';
 import SEO from '@/components/SEO';
@@ -38,23 +42,29 @@ const Index: React.FC = () => {
 
         {/* Main Content */}
         <main>
-          {/* Hero - Primary CTA to sign up */}
+          {/* Hero - Primary CTA */}
           <HeroSection
             isLoaded={isLoaded}
             prefersReducedMotion={prefersReducedMotion}
           />
 
-          {/* Social Proof - Logos and stats */}
+          {/* Brief credibility — logos and stats */}
           <SocialProofSection />
 
-          {/* Features - What the product does */}
-          <FeaturesSection />
+          {/* Q1: Will this work for someone like me? */}
+          <ProblemSection />
+          <WhoItsForSection />
 
-          {/* Testimonials - Social proof */}
+          {/* Q2: What is the risk? What are you not telling me? */}
+          <RiskSection />
+
+          {/* Q3: Is this worth the time, money, and effort? */}
           <TestimonialsSection />
-
-          {/* Pricing */}
           <PricingSection />
+
+          {/* Q4: What will my life actually look like after? */}
+          <ExperienceSection />
+          <AspirationSection />
 
           {/* Final CTA */}
           <CTASection />
