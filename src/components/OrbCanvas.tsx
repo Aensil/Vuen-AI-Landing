@@ -3,11 +3,13 @@ import React, { useRef, useEffect, useCallback } from 'react';
 interface OrbCanvasProps {
   className?: string;
   prefersReducedMotion?: boolean;
+  paused?: boolean;
 }
 
 const OrbCanvas: React.FC<OrbCanvasProps> = ({
   className = '',
   prefersReducedMotion = false,
+  paused = false,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number | null>(null);
@@ -16,6 +18,9 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
   const mouseRef = useRef({ x: 0, y: 0 });
   const rectCacheRef = useRef<DOMRect | null>(null);
   const isVisibleRef = useRef(true);
+  const pausedRef = useRef(paused);
+  pausedRef.current = paused;
+  const startLoopRef = useRef<(() => void) | null>(null);
 
   const draw = useCallback((ctx: CanvasRenderingContext2D, w: number, h: number) => {
     const cx = w / 2;
@@ -155,12 +160,13 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
     ctx.restore();
   }, [prefersReducedMotion]);
 
-  // Size the canvas buffer to match actual rendered size
+  // Size the canvas buffer to match actual rendered size.
+  // Uses offsetWidth/offsetHeight which return layout dimensions unaffected
+  // by ancestor CSS transforms (unlike getBoundingClientRect).
   const sizeCanvas = useCallback((canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
     const dpr = window.devicePixelRatio || 1;
-    const rect = canvas.getBoundingClientRect();
-    const w = rect.width;
-    const h = rect.height;
+    const w = canvas.offsetWidth;
+    const h = canvas.offsetHeight;
 
     if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) {
       canvas.width = Math.round(w * dpr);
@@ -168,7 +174,7 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
-    rectCacheRef.current = rect;
+    rectCacheRef.current = canvas.getBoundingClientRect();
     return { w, h };
   }, []);
 
@@ -188,9 +194,48 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
       return;
     }
 
-    // IntersectionObserver: pause when off-screen
+    // Animation loop with delta timing.
+    // Stops rAF entirely when paused or off-screen; restarts via startLoop().
+    const startLoop = () => {
+      if (animationRef.current !== null) return; // already running
+      const animate = (timestamp: number) => {
+        if (!isVisibleRef.current || pausedRef.current) {
+          // Fully stop the loop — startLoop() will restart it
+          animationRef.current = null;
+          return;
+        }
+
+        // Reset baseline after a long gap (pause/tab-switch) so the orb
+        // resumes smoothly instead of jumping forward.
+        if (startTimeRef.current === null) {
+          startTimeRef.current = timestamp - timeRef.current * 1000;
+        } else {
+          const elapsed = timestamp - (startTimeRef.current + timeRef.current * 1000);
+          if (elapsed > 100) {
+            startTimeRef.current = timestamp - timeRef.current * 1000;
+          }
+        }
+
+        const delta = Math.min((timestamp - (startTimeRef.current + timeRef.current * 1000)) / 1000, 0.05);
+        timeRef.current += delta;
+        startTimeRef.current = timestamp - timeRef.current * 1000;
+
+        const { w: cw, h: ch } = sizeCanvas(canvas, ctx);
+        draw(ctx, cw, ch);
+
+        animationRef.current = requestAnimationFrame(animate);
+      };
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    startLoop();
+
+    // IntersectionObserver: stop loop when off-screen, restart when visible
     const observer = new IntersectionObserver(
-      ([entry]) => { isVisibleRef.current = entry.isIntersecting; },
+      ([entry]) => {
+        isVisibleRef.current = entry.isIntersecting;
+        if (entry.isIntersecting) startLoop();
+      },
       { threshold: 0.1 }
     );
     observer.observe(canvas);
@@ -201,24 +246,8 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
     });
     resizeObserver.observe(canvas);
 
-    // Animation loop with delta timing
-    const animate = (timestamp: number) => {
-      if (startTimeRef.current === null) startTimeRef.current = timestamp;
-
-      if (isVisibleRef.current) {
-        // Delta time in seconds, capped at 50ms to avoid jumps after tab switch
-        const delta = Math.min((timestamp - (startTimeRef.current + timeRef.current * 1000)) / 1000, 0.05);
-        timeRef.current += delta;
-        startTimeRef.current = timestamp - timeRef.current * 1000;
-
-        const { w: cw, h: ch } = sizeCanvas(canvas, ctx);
-        draw(ctx, cw, ch);
-      }
-
-      animationRef.current = requestAnimationFrame(animate);
-    };
-
-    animationRef.current = requestAnimationFrame(animate);
+    // Expose startLoop so the paused-watcher effect can restart it
+    startLoopRef.current = startLoop;
 
     // Mouse handler — uses cached rect
     const handlePointer = (clientX: number, clientY: number) => {
@@ -242,12 +271,21 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
 
     return () => {
       if (animationRef.current !== null) cancelAnimationFrame(animationRef.current);
+      animationRef.current = null;
+      startLoopRef.current = null;
       window.removeEventListener('mousemove', handleMouse);
       canvas.removeEventListener('touchmove', handleTouch);
       observer.disconnect();
       resizeObserver.disconnect();
     };
   }, [draw, sizeCanvas, prefersReducedMotion]);
+
+  // Restart the animation loop when unpaused
+  useEffect(() => {
+    if (!paused && startLoopRef.current) {
+      startLoopRef.current();
+    }
+  }, [paused]);
 
   return (
     <canvas
