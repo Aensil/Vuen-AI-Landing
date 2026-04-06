@@ -3,11 +3,13 @@ import React, { useRef, useEffect, useCallback } from 'react';
 interface OrbCanvasProps {
   className?: string;
   prefersReducedMotion?: boolean;
+  paused?: boolean;
 }
 
 const OrbCanvas: React.FC<OrbCanvasProps> = ({
   className = '',
   prefersReducedMotion = false,
+  paused = false,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number | null>(null);
@@ -16,6 +18,8 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
   const mouseRef = useRef({ x: 0, y: 0 });
   const rectCacheRef = useRef<DOMRect | null>(null);
   const isVisibleRef = useRef(true);
+  const pausedRef = useRef(paused);
+  pausedRef.current = paused;
 
   const draw = useCallback((ctx: CanvasRenderingContext2D, w: number, h: number) => {
     const cx = w / 2;
@@ -155,12 +159,13 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
     ctx.restore();
   }, [prefersReducedMotion]);
 
-  // Size the canvas buffer to match actual rendered size
+  // Size the canvas buffer to match actual rendered size.
+  // Uses offsetWidth/offsetHeight which return layout dimensions unaffected
+  // by ancestor CSS transforms (unlike getBoundingClientRect).
   const sizeCanvas = useCallback((canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
     const dpr = window.devicePixelRatio || 1;
-    const rect = canvas.getBoundingClientRect();
-    const w = rect.width;
-    const h = rect.height;
+    const w = canvas.offsetWidth;
+    const h = canvas.offsetHeight;
 
     if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) {
       canvas.width = Math.round(w * dpr);
@@ -168,7 +173,7 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
-    rectCacheRef.current = rect;
+    rectCacheRef.current = canvas.getBoundingClientRect();
     return { w, h };
   }, []);
 
@@ -205,7 +210,7 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
     const animate = (timestamp: number) => {
       if (startTimeRef.current === null) startTimeRef.current = timestamp;
 
-      if (isVisibleRef.current) {
+      if (isVisibleRef.current && !pausedRef.current) {
         // Delta time in seconds, capped at 50ms to avoid jumps after tab switch
         const delta = Math.min((timestamp - (startTimeRef.current + timeRef.current * 1000)) / 1000, 0.05);
         timeRef.current += delta;

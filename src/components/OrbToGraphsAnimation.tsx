@@ -182,8 +182,9 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
 
   const barsGrow = barsReady;
 
-  // REGRESSION 2 FIX: Don't render OrbCanvas when it's fully invisible
-  const orbIsHidden = isDashboardPhase;
+  // Pause (not unmount) OrbCanvas when fully invisible to save CPU
+  // without losing the canvas buffer sizing on remount.
+  const orbPaused = isDashboardPhase;
 
   // Orb scale/opacity — fast decisive shrink during transition, smooth return to full
   const orbScale = isDashboardPhase ? 0.05 : isTransitioning ? 0.15 : isReturning ? 1 : 1;
@@ -308,7 +309,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
           </div>
         )}
 
-        {/* Orb layer — REGRESSION 2 FIX: conditionally render OrbCanvas */}
+        {/* Orb layer — paused (not unmounted) during dashboard to preserve canvas buffer */}
         {!isReducedMotionStatic && (
           <div
             className="absolute inset-0 flex items-center justify-center"
@@ -327,12 +328,11 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
               relative rounded-full
               ${phase === 'listening' ? 'animate-[orb-listening_2s_ease-in-out_infinite]' : ''}
             `}>
-              {!orbIsHidden && (
-                <OrbCanvas
-                  prefersReducedMotion={prefersReducedMotion}
-                  className="w-[240px] h-[240px] sm:w-[320px] sm:h-[320px]"
-                />
-              )}
+              <OrbCanvas
+                prefersReducedMotion={prefersReducedMotion}
+                paused={orbPaused}
+                className="w-[240px] h-[240px] sm:w-[320px] sm:h-[320px]"
+              />
             </div>
           </div>
         )}
