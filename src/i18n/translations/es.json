@@ -83,29 +83,30 @@
     "backedBy": "Respaldado por"
   },
   "testimonials": {
-    "sectionLabel": "Lo que dicen los equipos",
-    "title": "Confiado por equipos basados en datos",
+    "sectionLabel": "¿Esto funcionará para alguien como yo?",
+    "title": "Gente como tú ya usa Vuen",
+    "subtitle": "Líderes como tú ya usan Vuen. Esto es lo que cambió para ellos.",
     "items": [
       {
-        "quote": "Pasamos de dedicar 3 horas a crear informes semanales a obtener respuestas instantáneas. El ROI fue inmediato.",
+        "quote": "Antes me daba pavor ir a las reuniones de junta porque nunca tenía los números listos. La semana pasada alguien preguntó '¿qué tan rápido estamos gastando y cuánto nos queda?' Se lo pregunté a Vuen en voz alta. La gráfica apareció al instante. El presidente de la junta dijo que nunca me había visto tan preparada.",
         "author": "Sarah Chen",
-        "role": "VP de Operaciones",
-        "company": "SaaS Serie B",
-        "metric": "85% tiempo ahorrado"
+        "role": "CEO",
+        "company": "NovaPay (FinTech, 85 personas)",
+        "metric": "Preparación de junta: de 4 horas a 0"
       },
       {
-        "quote": "Finalmente, todo nuestro equipo puede acceder a insights sin esperar al equipo de datos. Ha cambiado cómo tomamos decisiones.",
+        "quote": "Teníamos licencias de Tableau que nadie abría. Ahora el equipo le hace preguntas a Vuen por voz cada mañana. Cancelamos 12 licencias de Tableau en el primer mes. Vuen se pagó solo en la primera semana.",
         "author": "Marcus Williams",
         "role": "Director de Crecimiento",
-        "company": "Plataforma E-commerce",
-        "metric": "3x decisiones más rápidas"
+        "company": "ShipRight (Logística, 200+ personas)",
+        "metric": "$14K/año ahorrados en herramientas"
       },
       {
-        "quote": "La interfaz de lenguaje natural significa que incluso nuestros stakeholders no técnicos pueden explorar datos de forma independiente.",
+        "quote": "Mi CEO me mandaba 10 mensajes al día pidiendo números. Ahora le habla a Vuen. Por fin tengo tiempo para el pronóstico de ventas que llevaba 6 meses posponiendo.",
         "author": "Elena Rodriguez",
         "role": "Directora de Analítica",
-        "company": "Startup FinTech",
-        "metric": "40% menos solicitudes ad-hoc"
+        "company": "Credo Health (HealthTech, 50 personas)",
+        "metric": "40% menos pedidos de datos de último momento"
       }
     ],
     "trustBadges": {
@@ -204,6 +205,83 @@
         ]
       }
     }
+  },
+  "stepPlan": {
+    "title": "Funcionando en 3 pasos",
+    "subtitle": "Sin capacitación. Sin llamadas de configuración. Sin esperar a sistemas.",
+    "stepLabel": "Paso",
+    "step1Title": "Conecta tus datos",
+    "step1Description": "Sube una hoja de cálculo o conecta tu base de datos. Toma menos de un minuto.",
+    "step2Title": "Haz una pregunta",
+    "step2Description": "Habla o escribe como si le preguntaras a un compañero. \"Muéstrame ventas por región vs el trimestre pasado.\"",
+    "step3Title": "Ve la respuesta",
+    "step3Description": "Recibes una gráfica, una explicación y una pregunta de seguimiento — todo en menos de 2 segundos."
+  },
+  "faq": {
+    "sectionLabel": "¿Cuál es el riesgo? ¿Qué no te estamos diciendo?",
+    "title": "Respuestas honestas a preguntas difíciles",
+    "subtitle": "Sabemos que estás revisando esto con cuidado. Esto es lo que nosotros querríamos saber si estuviéramos en tu lugar.",
+    "items": [
+      {
+        "question": "¿Qué pasa con mis datos? ¿Los pueden ver?",
+        "answer": "Tus datos están protegidos — tanto cuando se mueven como cuando se guardan. Nunca vemos tus datos a menos que nos pidas ayuda con algo. Nunca usamos tus datos para entrenar nuestra IA. Las empresas grandes pueden correr Vuen en sus propios servidores para que nada salga de su edificio. Tenemos certificación SOC 2 Tipo II y cumplimos con GDPR."
+      },
+      {
+        "question": "¿Y si la IA me da una respuesta equivocada?",
+        "answer": "Cada gráfica te muestra los pasos exactos que Vuen siguió para llegar a la respuesta, para que tú lo puedas verificar. Cuando Vuen no está seguro, te lo dice — no se inventa cosas. También te mostramos cuántas filas y qué fuentes de datos hay detrás de cada gráfica para que puedas revisar rápido. Dicho eso, siempre verifica las decisiones importantes tú mismo, igual que con cualquier herramienta."
+      },
+      {
+        "question": "¿De verdad va a funcionar con mis datos desordenados?",
+        "answer": "Sí. Vuen maneja nombres de columnas que no coinciden, valores faltantes y formatos mezclados. Si algo no está claro, te pregunta en vez de adivinar. Lo hemos probado con datos reales de cientos de empresas — del tipo desordenado, no del tipo bonito de demo."
+      },
+      {
+        "question": "¿Cuáles son los límites reales?",
+        "answer": "Vuen funciona mejor con tablas, hojas de cálculo y bases de datos. No está hecho para cosas como archivos de texto sin formato o imágenes. El plan gratis te da 40 preguntas al mes — suficiente para probarlo, pero vas a querer Pro para uso diario. Las preguntas muy complejas que jalan de 10+ tablas a la vez pueden tardar 3-5 segundos en vez de menos de uno."
+      },
+      {
+        "question": "¿Y si quiero cancelar?",
+        "answer": "Cancela cuando quieras desde tu configuración. Sin llamadas, sin que nadie te intente convencer, sin vueltas. Tus datos se borran en 30 días, o de inmediato si lo pides. Incluso te ayudamos a exportar todo primero."
+      },
+      {
+        "question": "¿Por qué debería confiar en una startup en vez de Tableau o Power BI?",
+        "answer": "Probablemente no deberías reemplazarlos — todavía. Prueba Vuen junto a tus herramientas actuales gratis. La mayoría de nuestros clientes no cambiaron de golpe. Empezaron a usar Vuen para respuestas rápidas en juntas, y poco a poco se dieron cuenta de que su equipo dejó de abrir los dashboards viejos. Estamos respaldados por Google for Startups y NVIDIA Inception, y tenemos certificación SOC 2."
+      }
+    ],
+    "guaranteeTitle": "Nuestra promesa: sin riesgo, sin trucos",
+    "guaranteeDescription": "14 días de prueba gratis. Sin tarjeta de crédito. Cancela cuando quieras con un clic. Si pagas y no quedas contento en los primeros 30 días, te devolvemos tu dinero — sin preguntas."
+  },
+  "roi": {
+    "sectionLabel": "¿Vale la pena el tiempo, el dinero y el esfuerzo?",
+    "title": "Los números no mienten",
+    "subtitle": "Tu equipo ya gasta miles en herramientas de datos y gente para operarlas. Vuen convierte horas de trabajo en unos segundos de conversación.",
+    "metric1Value": "$4,200",
+    "metric1Label": "Ahorrados cada mes",
+    "metric1Detail": "Los equipos ahorran más de 15 horas a la semana que antes se iban en sacar reportes. A $65/hora, esa es gente que puedes poner en trabajo que de verdad importa.",
+    "metric2Value": "12 min",
+    "metric2Label": "Para tu primera respuesta",
+    "metric2Detail": "Desde que te registras hasta tu primera respuesta real sobre tu negocio. Sin llamadas de configuración, sin capacitación, sin esperar a sistemas.",
+    "metric3Value": "3.5x",
+    "metric3Label": "Más decisiones basadas en datos",
+    "metric3Detail": "Los equipos que usan Vuen revisan sus datos 3.5 veces más seguido — porque preguntar es tan fácil que simplemente lo hacen.",
+    "comparisonTitle": "Ya pagas por herramientas de datos que nadie abre.",
+    "comparisonDescription": "Una empresa en crecimiento gasta entre $2,000 y $8,000 al mes en herramientas de datos, pero menos de 1 de cada 5 personas las usa de verdad. Vuen Pro cuesta $200/mes y todo tu equipo lo usa — porque hablar es más fácil que hacer clic en 6 filtros."
+  },
+  "transformation": {
+    "sectionLabel": "¿Cómo va a ser tu vida después?",
+    "title": "De \"te lo busco y te lo mando\" a \"decidamos ahora mismo\"",
+    "subtitle": "Este es el cambio real. No son las funciones — es la sensación de entrar a cualquier sala y tener las respuestas listas.",
+    "beforeLabel": "Antes de Vuen",
+    "afterLabel": "Después de Vuen",
+    "before1": "Pides un número en una junta y escuchas \"déjame checarlo y te lo mando.\" La energía se cae. La decisión se pospone para la próxima semana.",
+    "before2": "Pagas por Tableau, Power BI o Looker, pero la mayoría de la empresa nunca los abre. Toman capturas de pantalla, las pegan en presentaciones, o le preguntan a la única persona que sabe usar la herramienta.",
+    "before3": "Las preguntas de seguimiento paran todo. \"¿Y por región? ¿Por canal?\" significa 10 clics más y una pausa de 5 minutos mientras todos revisan su celular.",
+    "before4": "Te sientes poco preparado en las juntas de consejo porque el número correcto siempre está a una pregunta más de distancia.",
+    "after1": "Preguntas \"¿Cuántos clientes perdimos este mes?\" y la respuesta aparece en pantalla antes de que termines de hablar. Todos se mantienen enfocados. Decides ahora.",
+    "after2": "Todo tu equipo — marketing, operaciones, finanzas, el CEO — hace preguntas y recibe respuestas. Sin esperar a la única persona que sabe usar las herramientas. Solo habla.",
+    "after3": "Vas del panorama general a los detalles sin perder a nadie. \"Muéstrame por región... ahora por producto... ahora vs el año pasado\" — cada respuesta en menos de un segundo.",
+    "after4": "Entras a cada junta como la persona más preparada en la sala. No porque pasaste horas preparándote, sino porque puedes contestar cualquier pregunta en el momento.",
+    "closingBefore": "No solo consigues una mejor herramienta.",
+    "closingAfter": "Te conviertes en la persona que siempre tiene la respuesta."
   },
   "cta": {
     "title": "Comienza a tomar mejores decisiones hoy",
