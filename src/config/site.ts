@@ -5,17 +5,17 @@
 
 // Domain Configuration
 export const domains = {
-  main: 'https://vuen.ai',
-  app: 'https://app.vuen.ai',
-  realEstateDemo: 'https://real-estate.vuen.ai/',
+  main: 'https://evalumine.com',
+  app: 'https://app.evalumine.com',
+  realEstateDemo: 'https://real-estate.evalumine.com/',
 } as const;
 
 // Social Media Links
 export const socialLinks = {
   instagram: {
-    url: 'https://www.instagram.com/vuen.ai/',
-    label: 'Vuen AI on Instagram',
-    handle: '@vuen.ai',
+    url: 'https://www.instagram.com/evalumine/',
+    label: 'Evalumine on Instagram',
+    handle: '@evalumine',
   },
   twitter: {
     url: 'https://x.com/vuen_ai',
@@ -27,14 +27,14 @@ export const socialLinks = {
     label: 'Vuen AI on LinkedIn',
   },
   threads: {
-    url: 'https://www.threads.com/@vuen.ai',
-    label: 'Vuen AI on Threads',
-    handle: '@vuen.ai',
+    url: 'https://www.threads.com/@evalumine',
+    label: 'Evalumine on Threads',
+    handle: '@evalumine',
   },
   tiktok: {
-    url: 'https://www.tiktok.com/@vuen.ai',
-    label: 'Vuen AI on TikTok',
-    handle: '@vuen.ai',
+    url: 'https://www.tiktok.com/@evalumine',
+    label: 'Evalumine on TikTok',
+    handle: '@evalumine',
   },
 } as const;
 
@@ -46,8 +46,8 @@ export const videoDemo = {
 
 // Contact Information
 export const contact = {
-  email: 'enoc.silva@vuen.ai',
-  generalEmail: 'hello@vuen.ai',
+  email: 'enoc.silva@evalumine.com',
+  generalEmail: 'hello@evalumine.com',
 } as const;
 
 // Navigation Links

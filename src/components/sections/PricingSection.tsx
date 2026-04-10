@@ -97,7 +97,7 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
       priceLabel: t('pricing.plans.enterprise.priceLabel'),
       features: tArray<string>('pricing.plans.enterprise.features'),
       cta: t('pricing.plans.enterprise.cta'),
-      href: `mailto:hello@vuen.ai?subject=Enterprise%20Inquiry`,
+      href: `mailto:hello@evalumine.com?subject=Enterprise%20Inquiry`,
       highlight: false,
     },
   ];

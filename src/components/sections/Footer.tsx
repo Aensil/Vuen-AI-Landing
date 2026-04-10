@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
       { label: t('footer.features'), href: '#product' },
       { label: t('nav.pricing'), href: '#pricing' },
       { label: t('footer.useCases'), href: '/use-cases' },
-      { label: t('footer.realEstateDemo'), href: 'https://real-estate.vuen.ai/', external: true },
+      { label: t('footer.realEstateDemo'), href: 'https://real-estate.evalumine.com/', external: true },
     ],
     company: [
       { label: t('footer.about'), href: '/about' },

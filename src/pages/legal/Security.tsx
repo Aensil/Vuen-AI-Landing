@@ -128,8 +128,8 @@ const Security: React.FC = () => {
                 <h2 className="text-2xl font-semibold text-text-primary mb-4">10. Reporting Security Issues</h2>
                 <p className="text-text-secondary leading-relaxed">
                   If you discover a security vulnerability, please report it responsibly to:{' '}
-                  <a href={`mailto:security@vuen.ai`} className="text-primary-cyan hover:underline">
-                    security@vuen.ai
+                  <a href={`mailto:security@evalumine.com`} className="text-primary-cyan hover:underline">
+                    security@evalumine.com
                   </a>
                   . We appreciate your help in keeping Vuen AI secure and will work with you to address any issues promptly.
                 </p>

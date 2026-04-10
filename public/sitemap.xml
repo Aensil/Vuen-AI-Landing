@@ -3,7 +3,7 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://vuen.ai/</loc>
+    <loc>https://evalumine.com/</loc>
     <lastmod>2024-11-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -11,7 +11,7 @@
 
   <!-- Product Page -->
   <url>
-    <loc>https://vuen.ai/product</loc>
+    <loc>https://evalumine.com/product</loc>
     <lastmod>2024-11-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -19,7 +19,7 @@
 
   <!-- Use Cases - Main -->
   <url>
-    <loc>https://vuen.ai/use-cases</loc>
+    <loc>https://evalumine.com/use-cases</loc>
     <lastmod>2024-11-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -27,7 +27,7 @@
 
   <!-- Use Cases - Founders & CEOs -->
   <url>
-    <loc>https://vuen.ai/use-cases/founders-ceos</loc>
+    <loc>https://evalumine.com/use-cases/founders-ceos</loc>
     <lastmod>2024-11-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -35,7 +35,7 @@
 
   <!-- Use Cases - Operations -->
   <url>
-    <loc>https://vuen.ai/use-cases/ops</loc>
+    <loc>https://evalumine.com/use-cases/ops</loc>
     <lastmod>2024-11-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -43,7 +43,7 @@
 
   <!-- Use Cases - Finance & BI -->
   <url>
-    <loc>https://vuen.ai/use-cases/finance-bi</loc>
+    <loc>https://evalumine.com/use-cases/finance-bi</loc>
     <lastmod>2024-11-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -51,7 +51,7 @@
 
   <!-- Use Cases - Real Estate -->
   <url>
-    <loc>https://vuen.ai/use-cases/real-estate</loc>
+    <loc>https://evalumine.com/use-cases/real-estate</loc>
     <lastmod>2024-11-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -59,7 +59,7 @@
 
   <!-- Pricing -->
   <url>
-    <loc>https://vuen.ai/pricing</loc>
+    <loc>https://evalumine.com/pricing</loc>
     <lastmod>2024-11-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -67,7 +67,7 @@
 
   <!-- Early Access / Apply -->
   <url>
-    <loc>https://vuen.ai/early-access</loc>
+    <loc>https://evalumine.com/early-access</loc>
     <lastmod>2024-11-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -75,7 +75,7 @@
 
   <!-- About -->
   <url>
-    <loc>https://vuen.ai/about</loc>
+    <loc>https://evalumine.com/about</loc>
     <lastmod>2024-11-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -83,7 +83,7 @@
 
   <!-- Legal - Privacy Policy -->
   <url>
-    <loc>https://vuen.ai/legal/privacy</loc>
+    <loc>https://evalumine.com/legal/privacy</loc>
     <lastmod>2024-11-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -91,7 +91,7 @@
 
   <!-- Legal - Terms of Service -->
   <url>
-    <loc>https://vuen.ai/legal/terms</loc>
+    <loc>https://evalumine.com/legal/terms</loc>
     <lastmod>2024-11-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -99,7 +99,7 @@
 
   <!-- Legal - Security -->
   <url>
-    <loc>https://vuen.ai/legal/security</loc>
+    <loc>https://evalumine.com/legal/security</loc>
     <lastmod>2024-11-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

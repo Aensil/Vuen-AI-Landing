@@ -1,5 +1,5 @@
 # Vuen AI Robots.txt
-# https://vuen.ai/robots.txt
+# https://evalumine.com/robots.txt
 
 # Allow all crawlers for marketing site
 User-agent: *
@@ -18,7 +18,7 @@ Disallow: /staging/
 Disallow: /test/
 
 # Reference sitemap
-Sitemap: https://vuen.ai/sitemap.xml
+Sitemap: https://evalumine.com/sitemap.xml
 
 # Crawl-delay suggestion (optional, not all bots respect this)
 Crawl-delay: 1

@@ -55,7 +55,7 @@ const CTASection: React.FC = () => {
           </a>
 
           <a
-            href={`mailto:hello@vuen.ai?subject=Enterprise%20Demo%20Request`}
+            href={`mailto:hello@evalumine.com?subject=Enterprise%20Demo%20Request`}
             className="
               px-8 py-4 text-base font-medium text-white/60
               border border-white/10 rounded-full
