@@ -1,10 +1,14 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import Header from '@/components/Header';
 import HeroSection from '@/components/sections/HeroSection';
+import StepPlanSection from '@/components/sections/StepPlanSection';
 import SocialProofSection from '@/components/sections/SocialProofSection';
 import FeaturesSection from '@/components/sections/FeaturesSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
+import ROISection from '@/components/sections/ROISection';
+import TransformationSection from '@/components/sections/TransformationSection';
 import PricingSection from '@/components/sections/PricingSection';
+import FAQSection from '@/components/sections/FAQSection';
 import CTASection from '@/components/sections/CTASection';
 import Footer from '@/components/sections/Footer';
 import SEO from '@/components/SEO';
@@ -36,25 +40,37 @@ const Index: React.FC = () => {
         {/* Fixed Header */}
         <Header />
 
-        {/* Main Content */}
+        {/* Main Content — structured around Donald Miller's 4 buyer questions */}
         <main>
-          {/* Hero - Primary CTA to sign up */}
+          {/* Hero - Clear value proposition + CTA (villain in subheadline) */}
           <HeroSection
             isLoaded={isLoaded}
             prefersReducedMotion={prefersReducedMotion}
           />
 
-          {/* Social Proof - Logos and stats */}
+          {/* 3-Step Plan - Reduce fear, show simplicity (StoryBrand: the plan) */}
+          <StepPlanSection />
+
+          {/* Authority signals (StoryBrand: guide credentials) */}
           <SocialProofSection />
 
-          {/* Features - What the product does */}
+          {/* Product details — what it actually does (for curious buyers) */}
           <FeaturesSection />
 
-          {/* Testimonials - Social proof */}
+          {/* Q1: "Will this work for someone like me?" */}
           <TestimonialsSection />
 
-          {/* Pricing */}
+          {/* Q3 part 1: "Is it worth it?" — build the value case */}
+          <ROISection />
+
+          {/* Q4: "What will my life look like after?" — emotional payoff before price */}
+          <TransformationSection />
+
+          {/* Q3 part 2: Pricing — now they see the price against the value and vision */}
           <PricingSection />
+
+          {/* Q2: "What's the risk?" — handle final objections before the close */}
+          <FAQSection />
 
           {/* Final CTA */}
           <CTASection />

@@ -21,7 +21,7 @@
     "badge": "Now in Public Beta",
     "headline1": "Ask questions.",
     "headline2": "Get answers.",
-    "subheadline": "Upload a CSV or connect your database. Ask in plain English. Get instant visualizations in seconds.",
+    "subheadline": "Your team wastes hours waiting on dashboards nobody understands. Upload your data, ask in plain English, get instant charts in seconds.",
     "cta": "Try Free — No Credit Card",
     "scroll": "Scroll",
     "demo": {
@@ -83,29 +83,30 @@
     "backedBy": "Backed by"
   },
   "testimonials": {
-    "sectionLabel": "What teams are saying",
-    "title": "Trusted by data-driven teams",
+    "sectionLabel": "Will this work for someone like me?",
+    "title": "People like you already use Vuen",
+    "subtitle": "Leaders like you already use Vuen. Here's what changed for them.",
     "items": [
       {
-        "quote": "We went from spending 3 hours building weekly reports to getting instant answers. The ROI was immediate.",
+        "quote": "I used to dread board meetings because I never had the numbers ready. Last week, someone asked 'how fast are we spending money and how long will it last?' I asked Vuen out loud. The chart showed up instantly. My board chair said it was the most prepared I'd ever looked.",
         "author": "Sarah Chen",
-        "role": "VP of Operations",
-        "company": "Series B SaaS",
-        "metric": "85% time saved"
+        "role": "CEO",
+        "company": "NovaPay (FinTech, 85 people)",
+        "metric": "Board prep: 4 hours down to 0"
       },
       {
-        "quote": "Finally, our entire team can access insights without waiting for the data team. It's changed how we make decisions.",
+        "quote": "We had Tableau licenses nobody opened. Our team now asks Vuen questions by voice every morning. We cancelled 12 Tableau seats in the first month. Vuen paid for itself in week one.",
         "author": "Marcus Williams",
         "role": "Head of Growth",
-        "company": "E-commerce Platform",
-        "metric": "3x faster decisions"
+        "company": "ShipRight (Shipping & logistics, 200+ people)",
+        "metric": "$14K/year saved on tools"
       },
       {
-        "quote": "The natural language interface means even our non-technical stakeholders can explore data independently.",
+        "quote": "My CEO used to message me 10 times a day asking for numbers. Now he talks to Vuen. I finally have time for the sales forecast I've been putting off for 6 months.",
         "author": "Elena Rodriguez",
-        "role": "Director of Analytics",
-        "company": "FinTech Startup",
-        "metric": "40% fewer ad-hoc requests"
+        "role": "Head of Analytics",
+        "company": "Credo Health (HealthTech, 50 people)",
+        "metric": "40% fewer one-off data requests"
       }
     ],
     "trustBadges": {
@@ -204,6 +205,83 @@
         ]
       }
     }
+  },
+  "stepPlan": {
+    "title": "Up and running in 3 steps",
+    "subtitle": "No training. No setup calls. No waiting on IT.",
+    "stepLabel": "Step",
+    "step1Title": "Connect your data",
+    "step1Description": "Drop in a spreadsheet or connect your database. Takes less than a minute.",
+    "step2Title": "Ask a question",
+    "step2Description": "Talk or type like you're asking a coworker. \"Show me sales by region vs last quarter.\"",
+    "step3Title": "See the answer",
+    "step3Description": "Get a chart, an explanation, and a follow-up — all in under 2 seconds."
+  },
+  "faq": {
+    "sectionLabel": "What's the risk? What are we not telling you?",
+    "title": "Honest answers to hard questions",
+    "subtitle": "We know you're looking at this carefully. Here's what we'd want to know if we were you.",
+    "items": [
+      {
+        "question": "What happens to my data? Can you see it?",
+        "answer": "Your data is locked down — both when it moves and when it's stored. We never look at your data unless you ask us to help fix something. We never use your data to train our AI. Big companies can run Vuen on their own servers so nothing ever leaves their building. We're SOC 2 Type II certified and GDPR compliant."
+      },
+      {
+        "question": "What if the AI gives me a wrong answer?",
+        "answer": "Every chart shows you the exact steps Vuen took to get the answer, so you can check it yourself. When Vuen isn't sure, it tells you — it won't just guess. We also show how many rows and which data sources are behind every chart so you can double-check fast. That said, always verify big decisions yourself, just like you would with any tool."
+      },
+      {
+        "question": "Will this actually work with my messy data?",
+        "answer": "Yes. Vuen handles mismatched column names, missing values, and mixed formats. If something is unclear, it asks you instead of guessing. We've tested with real data from hundreds of companies — the messy kind, not the clean demo kind."
+      },
+      {
+        "question": "What are the real limits?",
+        "answer": "Vuen works best with tables, spreadsheets, and databases. It's not built for things like raw text files or images. The free plan gives you 40 questions a month — enough to try it, but you'll want Pro for daily use. Really complex questions that pull from 10+ tables at once can take 3-5 seconds instead of under one."
+      },
+      {
+        "question": "What if I want to cancel?",
+        "answer": "Cancel anytime from your settings. No phone calls, no one trying to talk you out of it, no hoops. Your data is deleted within 30 days, or right away if you ask. We'll even help you export everything first."
+      },
+      {
+        "question": "Why should I trust a startup over Tableau or Power BI?",
+        "answer": "You probably shouldn't replace them — yet. Try Vuen alongside your current tools for free. Most of our customers didn't switch right away. They started using Vuen for quick answers in meetings, and slowly noticed their team stopped opening the old dashboards. We're backed by Google for Startups and NVIDIA Inception, and we're SOC 2 certified."
+      }
+    ],
+    "guaranteeTitle": "Our promise: no risk, no tricks",
+    "guaranteeDescription": "14-day free trial. No credit card needed. Cancel anytime with one click. If you pay and you're not happy in the first 30 days, we'll give you your money back — no questions asked."
+  },
+  "roi": {
+    "sectionLabel": "Is it worth the time, money, and effort?",
+    "title": "The numbers don't lie",
+    "subtitle": "Your team already spends thousands on data tools and people to run them. Vuen turns hours of work into a few seconds of conversation.",
+    "metric1Value": "$4,200",
+    "metric1Label": "Saved every month",
+    "metric1Detail": "Teams save 15+ hours a week that used to go to pulling reports. At $65/hr, that's people you can put on work that actually matters.",
+    "metric2Value": "12 min",
+    "metric2Label": "To your first answer",
+    "metric2Detail": "From sign-up to your first real answer about your business. No setup calls, no training, no waiting on IT.",
+    "metric3Value": "3.5x",
+    "metric3Label": "More decisions backed by data",
+    "metric3Detail": "Teams using Vuen look at their data 3.5x more often — because asking is so easy, they just do it.",
+    "comparisonTitle": "You already pay for data tools nobody opens.",
+    "comparisonDescription": "A growing company spends $2,000-$8,000/month on data tools, but less than 1 in 5 people actually use them. Vuen Pro costs $200/month and your whole team uses it — because talking is easier than clicking through 6 filters."
+  },
+  "transformation": {
+    "sectionLabel": "What will your life look like after?",
+    "title": "From \"we'll get back to you\" to \"let's decide right now\"",
+    "subtitle": "This is the real change. Not features — the feeling of walking into any room and having the answers ready.",
+    "beforeLabel": "Before Vuen",
+    "afterLabel": "After Vuen",
+    "before1": "You ask for a number in a meeting and hear \"let me check and get back to you.\" The energy drops. The decision gets pushed to next week.",
+    "before2": "You pay for Tableau, Power BI, or Looker, but most of the company never opens them. They take screenshots, paste into slides, or bug the one person who knows the tool.",
+    "before3": "Follow-up questions stop everything. \"What about by region? By channel?\" means 10 more clicks and a 5-minute pause while everyone checks their phones.",
+    "before4": "You feel underprepared in board meetings because the right number is always one more question away.",
+    "after1": "You ask \"How many customers did we lose this month?\" and the answer shows up on screen before you finish talking. Everyone stays focused. You decide now.",
+    "after2": "Your whole team — marketing, operations, finance, the CEO — asks questions and gets answers. No more waiting on the one person who knows the tools. Just talk.",
+    "after3": "You go from the big picture to the details without losing anyone. \"Show by region... now by product... now vs last year\" — each answer in under a second.",
+    "after4": "You walk into every meeting as the most prepared person in the room. Not because you spent hours getting ready, but because you can answer any question on the spot.",
+    "closingBefore": "You don't just get a better tool.",
+    "closingAfter": "You become the person who always has the answer."
   },
   "cta": {
     "title": "Start making better decisions today",
