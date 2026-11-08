@@ -35,7 +35,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section
       ref={heroRef}
-      className="relative min-h-[100svh] landscape:min-h-[100vh] flex flex-col items-center justify-center px-4 sm:px-6 pt-20 sm:pt-24 pb-12 sm:pb-16 overflow-hidden"
+      className="relative min-h-[100svh] landscape:min-h-[100vh] flex flex-col items-center justify-center px-4 sm:px-6 pt-[132px] sm:pt-[148px] pb-12 sm:pb-16 overflow-hidden"
     >
       {/* Ambient gradient background — responds to mouse */}
       <div

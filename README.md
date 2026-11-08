@@ -1,6 +1,13 @@
-# Vuen AI – Visual Data Agent Landing Page
+# Vuen AI – Mirror Mirror and Visual Data Agent
 
-The marketing website and landing page for [Vuen AI](https://vuen.ai), a voice-first Visual Data Agent that turns spoken questions into live charts, flows, and dashboards from your own data in seconds.
+One website for two products, with a product switch above each header:
+
+- `/` — Mirror Mirror, the default landing page. Its static source and original assets live in `mirror-mirror/`.
+- `/visual-data-agent/` — Visual Data Agent. Its React source remains in `src/`.
+
+Each product keeps its existing copy, colors, fonts, translations, and interactions. The build keeps the two designs in separate documents so their styles do not conflict.
+
+Visual Data Agent is a voice-first product that turns spoken questions into live charts, flows, and dashboards from your own data in seconds.
 
 ## What is Vuen AI?
 
@@ -114,10 +121,14 @@ Language is auto-detected via IP geolocation (ipapi.co) and browser preferences,
 
 ```bash
 # Install dependencies
-npm install
+npm ci
 
-# Start development server (port 8082)
+# Build both products, then serve the combined site (port 4173)
+npm run build
 npm run dev
+
+# Edit Visual Data Agent with Vite live reload (port 8082)
+npm run dev:visual-data-agent
 
 # Type-check
 npm run type-check
@@ -128,7 +139,7 @@ npm run lint
 # Production build
 npm run build
 
-# Preview production build
+# Preview the latest combined build (rebuild after source changes)
 npm run preview
 ```
 
@@ -142,11 +153,11 @@ The site deploys automatically to GitHub Pages on every push to `main` via the `
 
 1. Checks out code
 2. Installs dependencies (`npm ci`)
-3. Builds the project (`npm run build`)
-4. Copies `index.html` to `404.html` for SPA client-side routing
+3. Builds Visual Data Agent under `dist/visual-data-agent/`, copies Mirror Mirror to `dist/`, and emits HTML files for Visual Data Agent deep links
+4. Copies the Mirror Mirror entry to the root `404.html` fallback
 5. Deploys the `dist/` directory to GitHub Pages
 
-The custom domain `vuen.ai` is configured via the `CNAME` file.
+The custom domain `vuen.ai` is configured via the root `CNAME` file, which the combined build copies to `dist/CNAME`. Visual Data Agent legal and placeholder routes have their own `index.html` files so direct navigation and refresh work on GitHub Pages.
 
 ## Build Optimizations
 

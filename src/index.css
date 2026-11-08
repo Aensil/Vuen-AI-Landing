@@ -108,6 +108,7 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 136px;
   }
 
   body {

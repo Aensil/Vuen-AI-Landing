@@ -4,6 +4,7 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/visual-data-agent/',
   plugins: [react()],
   resolve: {
     alias: {
@@ -15,7 +16,7 @@ export default defineConfig({
     host: true,
   },
   build: {
-    outDir: 'dist',
+    outDir: 'dist/visual-data-agent',
     sourcemap: false,
     minify: 'terser',
     terserOptions: {

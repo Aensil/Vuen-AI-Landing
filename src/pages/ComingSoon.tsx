@@ -1,5 +1,7 @@
 import React from 'react';
 import SEO from '@/components/SEO';
+import ProductSwitcher from '@/components/ProductSwitcher';
+import { visualDataAgentHref } from '@/config/products';
 import { useLanguage } from '@/hooks/useLanguage';
 import { seoConfig } from '@/config/site';
 
@@ -31,9 +33,10 @@ const ComingSoon: React.FC<ComingSoonProps> = ({ pageName, isSpanish = false, is
 
       <div className="min-h-screen bg-void text-text-primary flex flex-col">
         {/* Header */}
+        <ProductSwitcher />
         <header className="py-6 px-4 border-b border-glass-border">
           <div className="max-w-4xl mx-auto">
-            <a href="/" className="inline-flex items-center gap-3">
+            <a href={visualDataAgentHref()} className="inline-flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary-cyan via-deep-indigo to-accent-magenta opacity-80 animate-orb-breathe" />
               <span className="text-xl font-bold">VUEN</span>
             </a>
@@ -75,7 +78,7 @@ const ComingSoon: React.FC<ComingSoonProps> = ({ pageName, isSpanish = false, is
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="/"
+                href={visualDataAgentHref()}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary-cyan/10 border border-primary-cyan/30 text-primary-cyan hover:bg-primary-cyan/20 transition-all font-medium"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -85,7 +88,7 @@ const ComingSoon: React.FC<ComingSoonProps> = ({ pageName, isSpanish = false, is
               </a>
 
               <a
-                href="/#waitlist-section"
+                href={visualDataAgentHref('/#waitlist-section')}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-primary-cyan to-deep-indigo text-white hover:opacity-90 transition-all font-medium"
               >
                 {isSpanish ? 'Unirse a la Lista de Espera' : 'Join Waitlist'}

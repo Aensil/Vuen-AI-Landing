@@ -1,5 +1,7 @@
 import React from 'react';
 import SEO from '@/components/SEO';
+import ProductSwitcher from '@/components/ProductSwitcher';
+import { visualDataAgentHref } from '@/config/products';
 import { useLanguage } from '@/hooks/useLanguage';
 import { contact } from '@/config/site';
 
@@ -13,9 +15,10 @@ const Security: React.FC = () => {
 
       <div className="min-h-screen bg-void text-text-primary">
         {/* Header */}
+        <ProductSwitcher />
         <header className="py-6 px-4 border-b border-glass-border">
           <div className="max-w-4xl mx-auto">
-            <a href="/" className="inline-flex items-center gap-3">
+            <a href={visualDataAgentHref()} className="inline-flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary-cyan via-deep-indigo to-accent-magenta opacity-80" />
               <span className="text-xl font-bold">VUEN</span>
             </a>
@@ -149,7 +152,7 @@ const Security: React.FC = () => {
             {/* Back to home */}
             <div className="mt-16 pt-8 border-t border-glass-border">
               <a
-                href="/"
+                href={visualDataAgentHref()}
                 className="inline-flex items-center gap-2 text-text-muted hover:text-primary-cyan transition-colors"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

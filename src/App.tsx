@@ -27,7 +27,7 @@ const App: React.FC = () => {
     <HelmetProvider>
       <ThemeProvider>
       <LanguageProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
           <Suspense fallback={<PageLoader />}>
             <Routes>
               {/* Main landing page */}

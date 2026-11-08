@@ -1,0 +1,42 @@
+.step-motion-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 64px;
+  margin-bottom: 16px;
+}
+.discovery-steps .step-motion-heading .step-number {
+  position: static;
+  margin: 0;
+}
+.step-motion-diagram {
+  display: block;
+  flex: 0 0 72px;
+  width: 72px;
+  height: 64px;
+  overflow: visible;
+  color: var(--wine, #5a1830);
+}
+.step-motion-diagram [data-icon-part] {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.step-motion-diagram .diagram-panel {
+  fill: #eee3df;
+  stroke: #b58c94;
+}
+.step-motion-diagram .diagram-paper { fill: var(--paper, #f8f5ef); }
+.page-motion-surface {
+  transform: translate3d(0, var(--page-scene-y, 0px), 0) rotate(var(--page-scene-angle, 0deg));
+  transform-origin: 50% 55%;
+}
+.page-motion-surface.page-motion-active { will-change: transform; }
+@media (max-width: 600px) {
+  .discovery-steps li.has-motion-diagram { padding-left: 0; }
+  .step-motion-heading { min-height: 56px; margin-bottom: 9px; }
+  .step-motion-diagram { width: 64px; height: 56px; flex-basis: 64px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-motion-surface { transform: none; will-change: auto; }
+}

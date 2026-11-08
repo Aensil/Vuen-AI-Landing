@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { domains } from '@/config/site';
+import { visualDataAgentHref } from '@/config/products';
+import ProductSwitcher from '@/components/ProductSwitcher';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useTheme } from '@/hooks/useTheme';
 import LogoWhite from '@/assets/Logo_Vuen_AI_white.png';
@@ -69,7 +71,8 @@ const Header: React.FC = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -80,18 +83,19 @@ const Header: React.FC = () => {
   return (
     <header
       className={`
-        fixed left-0 right-0 z-50
+        fixed top-0 left-0 right-0 z-50
         transition-all duration-500 ease-out
         ${isScrolled
-          ? 'top-0 pt-3 pb-3 bg-void/80 backdrop-blur-2xl border-b border-white/[0.06]'
-          : 'top-2 pt-4 pb-4 bg-transparent'
+          ? 'bg-void/80 backdrop-blur-2xl border-b border-white/[0.06]'
+          : 'bg-transparent'
         }
       `}
     >
-      <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <ProductSwitcher />
+      <nav className={`max-w-7xl mx-auto px-6 flex items-center justify-between ${isScrolled ? 'py-3' : 'pt-6 pb-4'}`}>
         {/* Logo */}
         <a
-          href="/"
+          href={visualDataAgentHref()}
           className="flex items-center group"
         >
           <img
@@ -170,6 +174,8 @@ const Header: React.FC = () => {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="md:hidden relative w-11 h-11 flex items-center justify-center rounded-lg hover:bg-white/5 active:bg-white/10 transition-colors"
           aria-label="Toggle menu"
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="visual-data-agent-mobile-menu"
         >
           <div className="relative w-6 h-5 flex flex-col justify-between">
             <span
@@ -197,6 +203,7 @@ const Header: React.FC = () => {
 
       {/* Mobile Menu */}
       <div
+        id="visual-data-agent-mobile-menu"
         className={`
           md:hidden absolute top-full left-0 right-0
           bg-void/95 backdrop-blur-2xl border-b border-white/[0.06]

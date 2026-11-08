@@ -1,0 +1,23 @@
+/* Mirror Mirror: the palette selected by the user on 6 November 2026.
+   Source: https://mirror-mirror-fashion.aen1s.chatgpt.site/
+   Core values match the rendered reference; roles are documented in docs/color-system.md.
+   Keep literal UI colors here. Product imagery keeps its original colors. */
+:root {
+  --brand: #5a1830;
+  --brand-hover: #742641;
+  --paper: #f8f5ef;
+  --wash: #eee3df;
+  --ink: #302b29;
+  --muted: #6d625b;
+  --selected: #dfc5cb;
+  --line: #ded5ca;
+  --control-border: var(--muted);
+  --inverse: var(--paper);
+  --inverse-muted: var(--line);
+  --overlay: rgba(90, 24, 48, .92);
+  --backdrop: rgba(90, 24, 48, .72);
+  --scrim: rgba(90, 24, 48, .5);
+  --shadow: rgba(90, 24, 48, .12);
+  --image-rule: rgba(248, 245, 239, .7);
+  --on-image-border: rgba(248, 245, 239, .35);
+}

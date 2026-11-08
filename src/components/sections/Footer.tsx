@@ -1,5 +1,6 @@
 import React from 'react';
 import { domains, contact } from '@/config/site';
+import { visualDataAgentHref } from '@/config/products';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useTheme } from '@/hooks/useTheme';
 import LogoWhite from '@/assets/Logo_Vuen_AI_white.png';
@@ -36,7 +37,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-12">
           {/* Brand column */}
           <div className="max-w-xs">
-            <a href="/" className="inline-block mb-4">
+            <a href={visualDataAgentHref()} className="inline-block mb-4">
               <img
                 src={theme === 'dark' ? LogoWhite : LogoBlack}
                 alt="Vuen AI"
@@ -81,7 +82,7 @@ const Footer: React.FC = () => {
                 {footerLinks.product.map((link) => (
                   <li key={link.href}>
                     <a
-                      href={link.href}
+                      href={visualDataAgentHref(link.href)}
                       {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                       className="text-sm text-white/40 hover:text-white/70 transition-colors"
                     >
@@ -98,7 +99,7 @@ const Footer: React.FC = () => {
                 {footerLinks.company.map((link) => (
                   <li key={link.href}>
                     <a
-                      href={link.href}
+                      href={visualDataAgentHref(link.href)}
                       className="text-sm text-white/40 hover:text-white/70 transition-colors"
                     >
                       {link.label}
@@ -114,7 +115,7 @@ const Footer: React.FC = () => {
                 {footerLinks.legal.map((link) => (
                   <li key={link.href}>
                     <a
-                      href={link.href}
+                      href={visualDataAgentHref(link.href)}
                       className="text-sm text-white/40 hover:text-white/70 transition-colors"
                     >
                       {link.label}
