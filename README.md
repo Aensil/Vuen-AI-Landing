@@ -149,9 +149,9 @@ No environment variables are required for the landing page. The app redirects au
 
 ## Deployment
 
-The site deploys automatically to GitHub Pages on every push to `main` via the `.github/workflows/deploy.yml` workflow. It also runs after the legacy `pages build and deployment` workflow finishes, so a branch/Jekyll publication cannot leave raw source as the final deployed site. Each custom deployment verifies both live product pages, legal deep links, and their scripts/styles.
+The site deploys automatically to GitHub Pages on every push to `main` via the `.github/workflows/deploy.yml` workflow. When legacy Pages publishing is enabled, it waits for the matching `pages build and deployment` run to finish before building and publishing the compiled site, so branch/Jekyll publishing cannot overwrite the final deployment. Each custom deployment verifies both live product pages, legal deep links, and their scripts/styles.
 
-The preferred repository setting is **Settings → Pages → Build and deployment → Source → GitHub Actions**. This disables the legacy publisher; the completion trigger remains compatible while legacy publishing is enabled.
+The preferred repository setting is **Settings → Pages → Build and deployment → Source → GitHub Actions**. This disables the legacy publisher; the workflow remains compatible while legacy publishing is enabled.
 
 The custom workflow:
 
