@@ -6,6 +6,13 @@ on:
   push:
     branches: ["main"]
 
+  # Legacy Pages publishing is currently also enabled for this repository.
+  # Publish the compiled site after that job completes so raw source cannot win.
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    branches: ["main"]
+    types: [completed]
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -22,12 +29,37 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  publishing-mode:
+    runs-on: ubuntu-latest
+    outputs:
+      publish: ${{ steps.mode.outputs.publish }}
+    steps:
+      - name: Choose the publishing trigger for the current Pages mode
+        id: mode
+        uses: actions/github-script@v7
+        with:
+          script: |
+            let publish = true;
+            if (context.eventName === 'push') {
+              const { data } = await github.rest.repos.getPages(context.repo);
+              if (!['legacy', 'workflow'].includes(data.build_type)) {
+                throw new Error(`Unsupported Pages publishing mode: ${data.build_type}`);
+              }
+              publish = data.build_type === 'workflow';
+              core.info(`Pages publishing mode: ${data.build_type}. Publish on push: ${publish}.`);
+            }
+            core.setOutput('publish', String(publish));
+
   # Build job
   build:
+    needs: publishing-mode
+    if: needs.publishing-mode.outputs.publish == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -63,5 +95,18 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Checkout verification script
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Set up Node.js for published-site verification
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Verify both published product pages
+        run: node scripts/verify-live-site.mjs
 
 
